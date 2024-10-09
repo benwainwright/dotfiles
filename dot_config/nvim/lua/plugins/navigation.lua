@@ -17,7 +17,7 @@ return {
 
         config = function()
             vim.g.fzf_history_dir = '~/.local/share/fzf-history'
-            vim.g.fzfSwitchProjectProjects = {"~/dotfiles"}
+            vim.g.fzfSwitchProjectProjects = {"~/", "~/.config"}
             vim.g.fzfSwitchProjectWorkspaces = {"~/repos"}
             vim.keymap.set('n', '<leader>cd', '<cmd>FzfSwitchProject<CR>', opts)
 
