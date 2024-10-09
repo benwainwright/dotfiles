@@ -1,5 +1,8 @@
+export BREWFILE=~/.config/shell-files/brew/Brewfile
+
 saveBrewfile() {
-  brew bundle dump --file ~/.config/shell-files/brew/Brewfile
+  rm $BREWFILE
+  brew bundle dump --all --file $BREWFILE
 }
 
 brew() {
@@ -10,6 +13,9 @@ brew() {
         command brew install "$@"
         saveBrewfile
     elif [ "$subcommand" = "remove" ]; then
+        command brew rmtree "$@"
+        saveBrewfile
+    elif [ "$subcommand" = "uninstall" ]; then
         command brew rmtree "$@"
         saveBrewfile
     else
