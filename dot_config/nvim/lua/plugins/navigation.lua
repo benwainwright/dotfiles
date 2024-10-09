@@ -12,9 +12,15 @@ return {
         }
     }, {
         "benwainwright/fzf-project",
-        lazy = false,
         priority = 1000,
         keys = {"<leader>cd", "<cmd>FzfSwitchProject<cr>"},
+
+        config = function()
+            vim.g.fzf_history_dir = '~/.local/share/fzf-history'
+            vim.g.fzfSwitchProjectProjects = {"~/dotfiles"}
+            vim.g.fzfSwitchProjectWorkspaces = {"~/repos"}
+        end,
+
         dependencies = {
             "tpope/vim-fugitive", 'junegunn/fzf', 'junegunn/fzf.vim'
         }

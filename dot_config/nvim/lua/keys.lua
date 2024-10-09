@@ -1,25 +1,8 @@
 local vim = require("nvim-api")
 
-local function toggle_nvim_tree()
-    local api = require("nvim-tree.api")
 
-    local treeIsVisible = api.tree.is_visible({any_tabpage = true})
-    print("treeIsVisible" .. tostring(treeIsVisible))
-
-    if treeIsVisible then
-        print("visible")
-        local treeWin = api.tree.winid()
-        print("win" .. treeWin)
-        vim.api.nvim_set_current_win(treeWin)
-        print("set")
-        vim.cmd('q')
-        print("q")
-    else
-        print("open")
-        api.tree.open({find_file = true})
-    end
-end
-
+vim.exec("let mapleader = \"\\<Space>\"")
+vim.exec("let maplocalleader = \"\\\\\"")
 vim.exec("let mapleader = \"\\<Space>\"")
 vim.exec("let maplocalleader = \"\\\\\"")
 

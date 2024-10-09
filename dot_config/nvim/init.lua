@@ -1,3 +1,5 @@
+
+require("leader")
 require("disable-builtins")
 require("keys")
 require("core-settings")
