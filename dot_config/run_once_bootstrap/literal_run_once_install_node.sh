@@ -1,3 +1,3 @@
 #!/bin/bash
 
-fnm install v21
+fnm use v21
