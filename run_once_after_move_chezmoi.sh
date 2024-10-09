@@ -1,4 +1,4 @@
 #!/bin/sh
 
-mkdir ~/.config/shell-files/chezmoi
-mv ~/chezmoi ~/.config/shell-files/chezmoi/chezmoi
+mkdir -p ~/.config/shell-files/chezmoi/bin
+mv ~/chezmoi ~/.config/shell-files/chezmoi/bin/chezmoi
