@@ -1,0 +1,11 @@
+endpoint: https://cinch.atlassian.net
+user: ben.wainwright@cinch.co.uk
+authentication-method: api-token
+project: PD
+
+custom-commands:
+  - name: current
+    short: c
+    help: Get Current Tickets
+    script: |
+      {{ jira }} list -t current --query '(status = \"Next\" OR status = \"Doing\")'
