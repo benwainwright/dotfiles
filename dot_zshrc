@@ -72,7 +72,7 @@ source_shellfiles() {
   readonly bin_dirs=($SHELLFILES_DIR/*/bin)
 
   for dir in $bin_dirs; do
-    PATH=$PATH:$dir
+    export PATH=$PATH:$dir
   done
 
   setopt -o nomatch
