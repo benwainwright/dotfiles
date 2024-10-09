@@ -1,0 +1,198 @@
+########################################################
+## Bootstrap TMUX                                      #
+########################################################
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && pstree -s $$ | grep -wq code; then
+  exec tmux
+fi
+
+autoload -Uz compinit
+compinit
+
+
+########################################################
+## Load #
+########################################################
+
+function add_completion_dirs_to_fpath() {
+  setopt NULL_GLOB
+  readonly completions=($DOTFILES_DIR/config/*/completions/_*.zsh)
+  unsetopt NULL_GLOB
+
+  for completion_file in $completions; do
+    completion_dir=$(dirname $completion_file)
+    [ ! -z "$DEBUG_SOURCING" ] && echo "$(gdate +%s/%N) (completions): Adding $completion_dir to fpath"
+    fpath=($completion_dir $fpath)
+  done
+}
+add_completion_dirs_to_fpath
+
+#######################################################
+# Plugin environment variables                        #
+#######################################################
+
+
+
+#######################################################
+# Auto-sourcing                                       #
+#######################################################
+
+source_shellfiles() {
+  local private_env_file
+  private_env_file="$HOME/.env.private.zsh"
+
+  if [ -f "$private_env_file" ]; then
+    [ ! -z "$DEBUG_SOURCING" ] && echo "$(gdate +%s/%N): Sourcing $private_env_file"
+    source "$private_env_file"
+  fi
+
+  setopt null_glob
+  setopt +o nomatch
+
+  readonly initfiles=($DOTFILES_DIR/config/zshell/init/*.{zsh,sh})
+
+  for init_file in $initfiles; do
+    [ ! -z "$DEBUG_SOURCING" ] && echo "$(gdate +%s/%N) (init): Sourcing $init_file"
+    source "$init_file"
+  done
+
+  readonly envfiles=($DOTFILES_DIR/config/*/env.{zsh,sh})
+
+  for env_file in $envfiles; do
+    [ ! -z "$DEBUG_SOURCING" ] && echo "$(gdate +%s/%N) (env): Sourcing $env_file"
+    source "$env_file"
+  done
+
+  readonly shellfiles=($DOTFILES_DIR/config/*/*.{zsh,sh})
+
+  for shell_file in ${${shellfiles:#*/env.zsh}}; do
+    [  ! -z "$DEBUG_SOURCING" ] && echo "$(gdate +%s/%N) (shell): Sourcing $shell_file"
+    source "$shell_file"
+  done
+
+  readonly bin_dirs=($DOTFILES_DIR/config/*/bin)
+
+  for dir in $bin_dirs; do
+    PATH=$PATH:$dir
+  done
+
+  setopt -o nomatch
+  unsetopt null_glob
+}
+source_shellfiles
+
+#######################################################
+# Load plugins                                        #
+#######################################################
+
+autoload -Uz compinit
+compinit
+
+if [ ! -f "$ZSH_DIR/load-plugins.sh" ]; then
+  echo "load-plugins.sh not found. Installing with antidote"
+  source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+  antidote bundle < "$ZSH_DIR/plugins.txt" > "$ZSH_DIR/load-plugins.sh"
+fi
+
+
+source "$ZSH_DIR/load-plugins.sh"
+
+#####################################################
+# Configure shell integrations                      #
+#####################################################
+
+# export NODE_OPTIONS='--require ndb/preload.js'
+# export NODE_PATH=':/Users/wainwb01/.config/yarn/global/node_modules/ndb/lib/preload'
+# export NDD_IPC='/var/folders/9b/kdn1d1k13v5cbmdmxbj9gmjn5f9pm5/T/node-ndb.28842.sock'
+
+# Adds fzf shell bindings, such as Ctrl-R replacement
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#####################################################
+# Zshell configuration                              #
+#####################################################
+
+HISTFILE=~/.zsh_history
+
+zstyle ':completion:*' menu select
+
+# Allow changing directories without `cd`
+setopt autocd
+
+export SAVEHIST=10000
+export HISTSIZE=10000
+
+# Dont overwrite history
+setopt append_history
+
+# Also record time and duration of commands.
+setopt extended_history
+
+# Immediately append to the history file, not just when a term is killed
+setopt inc_append_history
+
+# Share history between multiple shells
+setopt share_history
+
+# Clear duplicates when trimming internal hist.
+setopt hist_expire_dups_first
+
+# Dont display duplicates during searches.
+setopt hist_find_no_dups
+
+# Ignore consecutive duplicates.
+setopt hist_ignore_dups
+
+# Remember only one unique copy of the command.
+setopt hist_ignore_all_dups
+
+# Remove superfluous blanks.
+setopt hist_reduce_blanks
+
+# Omit older commands in favor of newer ones.
+setopt hist_save_no_dups
+
+# Ignore commands that start with space.
+setopt hist_ignore_space
+
+# Load colours into shell variables https://github.com/ninrod/dotfiles/issues/134
+autoload -U colors
+colors
+
+# Evaluate colors in prompt skin
+setopt PROMPT_SUBST
+export PATH="/usr/local/sbin:$PATH"
+
+########################################################
+## Misc setup                                          #
+########################################################
+zle -N aws-switch-profile-fzf
+bindkey '^S' aws-switch-profile-fzf
+
+
+export REQUESTS_CA_BUNDLE="$HOME/.mac-ca-roots"
+
+# export NVM_NODEJS_ORG_MIRROR=http://nodejs.org/dist
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
+[[ -s "/Users/ben.wainwright/.gvm/scripts/gvm" ]] && source "/Users/ben.wainwright/.gvm/scripts/gvm"
+eval "$(fnm env --use-on-cd)"
+
+if which hass-cli &> /dev/null; then
+  source <(_HASS_CLI_COMPLETE=zsh_source hass-cli) 
+fi
+
+# Created by `pipx` on 2024-08-22 16:24:21
+export PATH="$PATH:/Users/benwainwright1/.local/bin"
+
+# pnpm
+export PNPM_HOME="/Users/benwainwright1/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+fpath+=($HOME/.zsh/pure)
+autoload -U promptinit; promptinit
+prompt pure
