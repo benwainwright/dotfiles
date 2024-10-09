@@ -1,0 +1,9 @@
+elpa
+.cache
+.lsp-session-v1
+eshell
+projectile-bookmarks.eld
+transient
+forge-database.sqlite
+custom.el
+var
