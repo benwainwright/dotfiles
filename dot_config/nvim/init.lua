@@ -1,12 +1,7 @@
-if vim.g.vscode then
+require("disable-builtins")
+require("keys")
+require("core-settings")
 
-else
-    require("disable-builtins")
-    require("keys")
-    require("core-settings")
-
-    -- Lazy should be loaded after keys as it requires leader and local leader to be set
-    require("lazy-bootstrap")
-    require("load-vim-config")
-    require("custom-highlights")
-end
+-- Lazy should be loaded after keys as it requires leader and local leader to be set
+require("lazy-bootstrap")
+require("custom-highlights")
