@@ -1,3 +1,3 @@
 #!/bin/bash
 
-fnm use v21
+fnm use
