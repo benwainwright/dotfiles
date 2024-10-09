@@ -1,10 +1,9 @@
-########################################################
-## Bootstrap TMUX                                      #
-########################################################
+XDG_CONFIG_HOME="$HOME/.config"
+SHELLFILES_DIR=$XDG_CONFIG_HOME/shell-files
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && pstree -s $$ | grep -wq code; then
-  exec tmux
-fi
+########################################################
+## Init completions                                    #
+########################################################
 
 autoload -Uz compinit
 compinit
@@ -16,7 +15,7 @@ compinit
 
 function add_completion_dirs_to_fpath() {
   setopt NULL_GLOB
-  readonly completions=($DOTFILES_DIR/config/*/completions/_*.zsh)
+  readonly completions=($SHELLFILES_DIR/*/completions/_*.zsh)
   unsetopt NULL_GLOB
 
   for completion_file in $completions; do
@@ -49,28 +48,28 @@ source_shellfiles() {
   setopt null_glob
   setopt +o nomatch
 
-  readonly initfiles=($DOTFILES_DIR/config/zshell/init/*.{zsh,sh})
+  readonly initfiles=($SHELLFILES_DIR/zshell/init/*.{zsh,sh})
 
   for init_file in $initfiles; do
     [ ! -z "$DEBUG_SOURCING" ] && echo "$(gdate +%s/%N) (init): Sourcing $init_file"
     source "$init_file"
   done
 
-  readonly envfiles=($DOTFILES_DIR/config/*/env.{zsh,sh})
+  readonly envfiles=($SHELLFILES_DIR/*/env.{zsh,sh})
 
   for env_file in $envfiles; do
     [ ! -z "$DEBUG_SOURCING" ] && echo "$(gdate +%s/%N) (env): Sourcing $env_file"
     source "$env_file"
   done
 
-  readonly shellfiles=($DOTFILES_DIR/config/*/*.{zsh,sh})
+  readonly shellfiles=($SHELLFILES_DIR/*/*.{zsh,sh})
 
   for shell_file in ${${shellfiles:#*/env.zsh}}; do
     [  ! -z "$DEBUG_SOURCING" ] && echo "$(gdate +%s/%N) (shell): Sourcing $shell_file"
     source "$shell_file"
   done
 
-  readonly bin_dirs=($DOTFILES_DIR/config/*/bin)
+  readonly bin_dirs=($SHELLFILES_DIR/*/bin)
 
   for dir in $bin_dirs; do
     PATH=$PATH:$dir
@@ -88,14 +87,14 @@ source_shellfiles
 autoload -Uz compinit
 compinit
 
-if [ ! -f "$ZSH_DIR/load-plugins.sh" ]; then
+if [ ! -f "$SHELLFILES_DIR/zsh/load-plugins.sh" ]; then
   echo "load-plugins.sh not found. Installing with antidote"
   source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-  antidote bundle < "$ZSH_DIR/plugins.txt" > "$ZSH_DIR/load-plugins.sh"
+  antidote bundle < "$SHELLFILES_DIR/zsh/plugins.txt" > "$SHELLFILES_DIR/zsh/load-plugins.sh"
 fi
 
 
-source "$ZSH_DIR/load-plugins.sh"
+source "$SHELLFILES_DIR/zsh/load-plugins.sh"
 
 #####################################################
 # Configure shell integrations                      #
