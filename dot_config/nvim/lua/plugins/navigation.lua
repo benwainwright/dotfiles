@@ -12,12 +12,16 @@ return {
         }
     }, {
         "benwainwright/fzf-project",
+        dev = true,
         priority = 1000,
         keys = {"<leader>cd", "<cmd>FzfSwitchProject<cr>"},
 
         config = function()
             vim.g.fzf_history_dir = '~/.local/share/fzf-history'
-            vim.g.fzfSwitchProjectProjects = {"~/", "~/.config"}
+            vim.g.fzfSwitchProjectProjects = {
+                {path = "~/", name = "Home dir", command = 'fd'},
+                {path = "~/.config", command = 'fd', name = "Config files"}
+            }
             vim.g.fzfSwitchProjectWorkspaces = {"~/repos"}
             vim.keymap.set('n', '<leader>cd', '<cmd>FzfSwitchProject<CR>')
             vim.keymap.set('n', '<C-f>', '<cmd>FzfChooseProjectFile<CR>')

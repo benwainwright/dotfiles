@@ -26,7 +26,10 @@ vim.opt.rtp:prepend(lazypath)
 -- vim.g.maplocalleader = "\\"
 
 require("lazy").setup({
-    defaults = {lazy = true},
+    defaults = {lazy = true, dev = {path = "~/repos"}},
+    dev = {
+      path = "~/repos"
+    },
     spec = {{import = "plugins"}},
     install = {colorscheme = {"habamax"}},
     checker = {enabled = true}
