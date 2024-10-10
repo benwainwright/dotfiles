@@ -13,6 +13,7 @@ vim.maps {
         {key = "<C-h>", command = "NavigatorLeft"},
         {key = "<C-l>", command = "NavigatorRight"},
         {key = "<leader>tr", lua = "require('neotest').run.run()"},
+        {key = "<leader>ts", lua = "require('neotest').summary.toggle()"},
         {key = "<leader>tw", lua = "require('neotest').watch.toggle()"},
         {key = "<leader>to", lua = "require('neotest').output_panel.toggle()"},
         {key = "nd", lua = "require('notify').dismiss()"},
