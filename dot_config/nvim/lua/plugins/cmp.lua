@@ -2,9 +2,8 @@ return {
     'hrsh7th/nvim-cmp',
     event = 'VeryLazy',
     dependencies = {
-        'quangnguyen30192/cmp-nvim-ultisnips', 'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'hrsh7th/cmp-nvim-lua',
-        'onsails/lspkind-nvim',
+        'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path',
+        'hrsh7th/cmp-nvim-lua', 'onsails/lspkind-nvim',
         {'David-Kunz/cmp-npm', dependencies = 'nvim-lua/plenary.nvim'}
 
     },
@@ -46,12 +45,6 @@ return {
                     return vim_item
                 end
             },
-
-            snippet = {
-                expand = function(args)
-                    vim.fn["UltiSnips#Anon"](args.body)
-                end
-            },
             mapping = {
                 ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(),
                                         {'i', 's'}),
@@ -67,8 +60,7 @@ return {
                 {
                     name = "lazydev",
                     group_index = 0 -- set group index to 0 to skip loading LuaLS completions
-                }, {name = 'nvim_lsp'}, {name = 'ultisnips'}, -- {
-                --   name = 'cmp_tabnine'
+                }, {name = 'nvim_lsp'}, --   name = 'cmp_tabnine'
                 -- },
                 {name = 'nvim_lua'}, {name = 'buffer'}, {name = 'path'},
                 {name = 'npm', keyword_length = 4}
