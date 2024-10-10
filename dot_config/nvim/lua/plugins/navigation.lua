@@ -17,10 +17,12 @@ return {
 
         config = function()
             vim.g.fzf_history_dir = '~/.local/share/fzf-history'
+
             vim.g.fzfSwitchProjectProjects = {
-                {path = "~/", name = "Home dir", command = 'fd'},
-                {path = "~/.config", command = 'fd', name = "Config files"}
+                {path = "~/", name = "Home dir", command = 'fd --hidden --max-depth 1 --type file'},
+                {path = "~/.config", command = 'fd --type file', name = "Config files"}
             }
+
             vim.g.fzfSwitchProjectWorkspaces = {"~/repos"}
             vim.keymap.set('n', '<leader>cd', '<cmd>FzfSwitchProject<CR>')
             vim.keymap.set('n', '<C-f>', '<cmd>FzfChooseProjectFile<CR>')
