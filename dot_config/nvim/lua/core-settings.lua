@@ -146,3 +146,5 @@ vim.o.listchars =
 
 -- Don't display tab line
 vim.o.showtabline = 0
+
+vim.g.python3_host_prog = "~/.neovim-venv/bin/python3"
