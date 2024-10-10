@@ -12,7 +12,6 @@ return {
         }
     }, {
         "benwainwright/fzf-project",
-        dev = true,
         priority = 1000,
         keys = {"<leader>cd", "<cmd>FzfSwitchProject<cr>"},
 
