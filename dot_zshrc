@@ -107,6 +107,8 @@ source "$SHELLFILES_DIR/zsh/load-plugins.sh"
 # Adds fzf shell bindings, such as Ctrl-R replacement
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+eval "$(zoxide init --cmd j zsh)"
+
 #####################################################
 # Zshell configuration                              #
 #####################################################
