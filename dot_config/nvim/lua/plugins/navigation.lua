@@ -13,7 +13,10 @@ return {
     }, {
         "benwainwright/fzf-project",
         priority = 1000,
-        keys = {"<leader>cd", "<cmd>FzfSwitchProject<cr>"},
+        keys = {
+            {"<leader>cd", "<cmd>FzfSwitchProject<cr>"},
+            {"<C-f>", "<cmd>FzfChooseProjectFile<cr>"}
+        },
 
         config = function()
             vim.g.fzf_history_dir = '~/.local/share/fzf-history'
