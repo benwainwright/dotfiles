@@ -1,6 +1,5 @@
 local vim = require("nvim-api")
 
-
 vim.exec("let mapleader = \"\\<Space>\"")
 vim.exec("let maplocalleader = \"\\\\\"")
 vim.exec("let mapleader = \"\\<Space>\"")
@@ -13,6 +12,7 @@ vim.maps {
         {key = "<C-h>", command = "NavigatorLeft"},
         {key = "<C-l>", command = "NavigatorRight"},
         {key = "<leader>tr", lua = "require('neotest').run.run()"},
+        {key = "<leader>dt", lua = "require('dapui').toggle()"},
         {key = "<leader>ts", lua = "require('neotest').summary.toggle()"},
         {key = "<leader>tw", lua = "require('neotest').watch.toggle()"},
         {key = "<leader>to", lua = "require('neotest').output_panel.toggle()"},

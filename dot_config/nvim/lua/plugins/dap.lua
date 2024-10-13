@@ -1,4 +1,7 @@
 return {
-    {"mfussenegger/nvim-dap", event = "VeryLazy"},
-    {"Pocco81/DAPInstall.nvim", event = "VeryLazy"}
+    {
+        event = 'VeryLazy',
+        "rcarriga/nvim-dap-ui",
+        dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}
+    }
 }

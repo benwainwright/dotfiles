@@ -4,10 +4,12 @@ return {
     dependencies = {
         "williamboman/mason.nvim", "hrsh7th/cmp-nvim-lsp",
         "neovim/nvim-lspconfig", "b0o/schemastore.nvim",
-        "jose-elias-alvarez/nvim-lsp-ts-utils"
+        "jose-elias-alvarez/nvim-lsp-ts-utils", "jay-babu/mason-nvim-dap.nvim"
+
     },
     config = function()
         require("mason").setup()
+        require("mason-nvim-dap").setup({ensure_installed = {"node2"}})
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "terraformls", "angularls", "awk_ls", "bashls", "cssls",
