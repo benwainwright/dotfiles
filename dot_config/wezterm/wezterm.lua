@@ -36,7 +36,7 @@ wezterm.on('ActivatePaneDirection-down', function(window, pane)
 end)
 
 return {
-    font = wezterm.font("FiraCode Nerd Font Mono"),
+    font = wezterm.font("FiraCode Nerd Font Mono", {weight = 'Medium'}),
     window_padding = {left = 0, right = 0, top = 0, bottom = 0},
     window_background_opacity = 0.95,
     font_size = 15,
