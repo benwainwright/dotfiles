@@ -12,9 +12,8 @@ return {
             ensure_installed = {
                 "terraformls", "angularls", "awk_ls", "bashls", "cssls",
                 "cssmodules_ls", "dockerls", "emmet_ls", "eslint", "svelte",
-                "grammarly", "html", "jsonls", "sqlls", "lua_ls",
-                "rust_analyzer", "tailwindcss", "ts_ls", "yamlls", "vimls",
-                "gopls"
+                "html", "jsonls", "sqlls", "lua_ls", "rust_analyzer",
+                "tailwindcss", "ts_ls", "yamlls", "vimls", "gopls"
             }
         })
 

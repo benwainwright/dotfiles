@@ -30,6 +30,7 @@
   "neogit": { "branch": "master", "commit": "bab8703a4d5406548ab7feb47efbabf023f5ae1a" },
   "neotest": { "branch": "master", "commit": "6d3d22cdad49999ef774ebe1bc250a4994038964" },
   "neotest-golang": { "branch": "main", "commit": "365af9a44091556380da0183c422dacbfe547f35" },
+  "neotest-plenary": { "branch": "master", "commit": "3523adcf9ffaad1911960c5813b0136c1b63a2ec" },
   "neotest-vitest": { "branch": "main", "commit": "9e30dca989a2287cf3fde86b3e138ea7fa4de935" },
   "noice.nvim": { "branch": "main", "commit": "df448c649ef6bc5a6a633a44f2ad0ed8d4442499" },
   "nui.nvim": { "branch": "main", "commit": "b58e2bfda5cea347c9d58b7f11cf3012c7b3953f" },
