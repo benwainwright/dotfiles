@@ -10,6 +10,8 @@ return {
 		"jay-babu/mason-nvim-dap.nvim",
 		"stevearc/conform.nvim",
 		"zapling/mason-conform.nvim",
+		"mfussenegger/nvim-lint",
+		"rshkarin/mason-nvim-lint",
 	},
 	config = function()
 		require("mason").setup()
@@ -22,12 +24,30 @@ return {
 			},
 
 			format_on_save = {
-				-- These options will be passed to conform.format()
 				timeout_ms = 500,
 				lsp_format = "fallback",
 			},
 		})
-		require("mason-conform").setup()
+
+		require("lint").linters_by_ft = {
+			javascript = { "eslint_d", "eslint", stop_after_first = true, "typos" },
+			go = { "golangcilint", "typos" },
+			lua = { "selene", "typos" },
+			css = { "stylelint", "typos" },
+			zsh = { "zsh", "typos" },
+			markdown = { "write-good" },
+			yaml = { "yamllint" },
+			python = { "vulture", "typos" },
+		}
+
+		require("mason-nvim-lint").setup()
+
+		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+			callback = function()
+				require("lint").try_lint()
+			end,
+		})
+
 		require("mason-nvim-dap").setup({
 			ensure_installed = { "node2" },
 			automatic_installation = true,
