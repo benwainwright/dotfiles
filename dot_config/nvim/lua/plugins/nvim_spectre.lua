@@ -7,4 +7,4 @@
 --
 -- If you wish to use this plugin, you can optionally modify and then uncomment
 -- the configuration below.
-return {"nvim-pack/nvim-spectre"}
+return { "nvim-pack/nvim-spectre" }

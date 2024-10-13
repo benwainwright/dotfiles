@@ -1,1 +1,1 @@
-return {"ziontee113/syntax-tree-surfer"}
+return { "ziontee113/syntax-tree-surfer" }
