@@ -30,14 +30,13 @@ return {
 		})
 
 		require("lint").linters_by_ft = {
-			javascript = { "eslint_d", "eslint", stop_after_first = true, "typos" },
-			go = { "golangcilint", "typos" },
-			lua = { "selene", "typos" },
-			css = { "stylelint", "typos" },
-			zsh = { "zsh", "typos" },
-			markdown = { "write-good" },
+			javascript = { "eslint_d" },
+			go = { "golangcilint" },
+			css = { "stylelint" },
+			zsh = { "shellcheck" },
+			bash = { "shellcheck" },
 			yaml = { "yamllint" },
-			python = { "vulture", "typos" },
+			python = { "vulture" },
 		}
 
 		require("mason-nvim-lint").setup()
