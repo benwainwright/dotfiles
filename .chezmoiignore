@@ -1,3 +1,5 @@
 .config/shell-files/chezmoi
+.config/chezmoi/chezmoi.toml
+.config/chezmoi
 .config/shell-files/chezmoi/bin/chezmoi
 .DS_Store
