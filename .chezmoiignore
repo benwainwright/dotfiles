@@ -1,0 +1,3 @@
+.config/shell-files/chezmoi
+.config/shell-files/chezmoi/bin/chezmoi
+.DS_Store
