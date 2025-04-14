@@ -5,3 +5,4 @@
 .DS_Store
 .config/op/config
 .config/github-copilot/apps.json
+.config/znt/privhist.db
