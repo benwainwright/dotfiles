@@ -1,7 +1,5 @@
 local vim = require("nvim-api")
 
-local tools = require("typescript-tools")
-
 vim.exec('let mapleader = "\\<Space>"')
 vim.exec('let maplocalleader = "\\\\"')
 vim.exec('let mapleader = "\\<Space>"')
