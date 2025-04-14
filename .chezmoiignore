@@ -1,6 +1,7 @@
 .config/shell-files/chezmoi
 .config/chezmoi/chezmoi.toml
 .config/chezmoi
+.config/oni2
 .config/shell-files/chezmoi/bin/chezmoi
 .DS_Store
 .config/op/config
