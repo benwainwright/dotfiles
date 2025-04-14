@@ -5,13 +5,6 @@ vim.exec('let maplocalleader = "\\\\"')
 vim.exec('let mapleader = "\\<Space>"')
 vim.exec('let maplocalleader = "\\\\"')
 
-
-local function toggleCoverage()
-  local coverage = require("coverage")
-  coverage.load(false)
-  coverage.toggle()
-end
-
 vim.maps({
   n = {
     { key = "<C-j>",       command = "NavigatorDown" },
