@@ -3,3 +3,5 @@
 .config/chezmoi
 .config/shell-files/chezmoi/bin/chezmoi
 .DS_Store
+.config/op/config
+.config/github-copilot/apps.json
