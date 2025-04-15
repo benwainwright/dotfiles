@@ -1,31 +1,31 @@
 return {
   'dmmulroy/ts-error-translator.nvim',
-  {
-    "rachartier/tiny-inline-diagnostic.nvim",
-    event = "VeryLazy", -- Or `LspAttach`
-    priority = 1000,    -- needs to be loaded in first
-
-    config = function()
-      require('tiny-inline-diagnostic').setup({
-        preset = "powerline",
-        options = {
-          use_icons_from_diagnostics = true,
-          add_messages = true,
-          show_source = {
-            enabled = true
-          }
-        },
-        multilines = {
-          enabled = true,
-          always_show = true
-        },
-
-        vir_texts = {
-          priority = 2048
-        }
-
-      })
-      vim.diagnostic.config({ virtual_text = false })
-    end
-  }
+  -- {
+  --   "rachartier/tiny-inline-diagnostic.nvim",
+  --   event = "VeryLazy", -- Or `LspAttach`
+  --   priority = 1000,    -- needs to be loaded in first
+  --
+  --   config = function()
+  --     require('tiny-inline-diagnostic').setup({
+  --       preset = "powerline",
+  --       options = {
+  --         use_icons_from_diagnostics = true,
+  --         add_messages = true,
+  --         show_source = {
+  --           enabled = true
+  --         }
+  --       },
+  --       multilines = {
+  --         enabled = true,
+  --         always_show = true
+  --       },
+  --
+  --       vir_texts = {
+  --         priority = 2048
+  --       }
+  --
+  --     })
+  --     vim.diagnostic.config({ virtual_text = false })
+  --   end
+  -- }
 }
