@@ -1,0 +1,21 @@
+[
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space j d": "editor::GoToDefinition",
+      "space j r": "editor::FindAllReferences",
+      "space j s": "project_symbols::Toggle",
+      "space r": "editor::Rename",
+      "space c d": "projects::OpenRecent",
+      "space a": "editor::ToggleCodeActions"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown"
+    }
+  }
+]
