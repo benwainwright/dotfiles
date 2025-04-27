@@ -7,11 +7,44 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "ssh_connections": [
+    {
+      "host": "homeassistant.local",
+      "username": "root",
+      "projects": [
+        {
+          "paths": ["~/config"]
+        }
+      ]
+    }
+  ],
+  "terminal": {
+    "default_height": 500,
+    "toolbar": {
+      "breadcrumbs": false
+    }
+  },
+  "hide_mouse": "on_typing_and_movement",
   "theme": "Monokai Vibrant Amped",
+  "bottom_dock_layout": "contained",
+  "toolbar": {
+    "breadcrumbs": true
+  },
   "vim_mode": true,
   "ui_font_size": 16,
+  "auto_signature_help": true,
   "buffer_font_size": 16,
+  "active_pane_modifiers": {
+    "inactive_opacity": 0.75
+  },
   "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "autosave": "on_focus_change",
+  "tab_bar": {
+    "show": false
+  },
   "diagnostics": {
     "include_warnings": true,
     "inline": {

@@ -1,21 +1,40 @@
 [
   {
+    "context": "ProjectPanel",
+    "bindings": {
+      "r": "project_panel::Rename"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious"
+    }
+  },
+  {
     "context": "vim_mode == normal",
     "bindings": {
+      "space t": "workspace::NewTerminal",
       "space j d": "editor::GoToDefinition",
       "space j r": "editor::FindAllReferences",
       "space j s": "project_symbols::Toggle",
       "space r": "editor::Rename",
       "space c d": "projects::OpenRecent",
-      "space a": "editor::ToggleCodeActions"
+      "space a": "editor::ToggleCodeActions",
+      "ctrl-a l": "pane::SplitRight",
+      "ctrl-a h": "pane::SplitLeft",
+      "ctrl-a j": "pane::SplitDown",
+      "ctrl-a k": "pane::SplitUp"
     }
   },
   {
     "bindings": {
-      "ctrl-w h": "workspace::ActivatePaneLeft",
-      "ctrl-w l": "workspace::ActivatePaneRight",
-      "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w j": "workspace::ActivatePaneDown"
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
     }
   }
 ]
