@@ -18,6 +18,15 @@
       ]
     }
   ],
+  "auto_install_extensions": {
+    "html": true,
+    "astro": true,
+
+    "dockerfile": true,
+    "javascript": true,
+    "typescript": true,
+    "python": true
+  },
   "terminal": {
     "default_height": 500,
     "toolbar": {
@@ -25,7 +34,7 @@
     }
   },
   "hide_mouse": "on_typing_and_movement",
-  "theme": "Monokai Vibrant Amped",
+  "theme": "Ayu Mirage",
   "bottom_dock_layout": "contained",
   "toolbar": {
     "breadcrumbs": true
@@ -35,7 +44,8 @@
   "auto_signature_help": true,
   "buffer_font_size": 16,
   "active_pane_modifiers": {
-    "inactive_opacity": 0.75
+    "inactive_opacity": 0.75,
+    "border_size": 1.0
   },
   "relative_line_numbers": true,
   "scrollbar": {
@@ -54,5 +64,8 @@
       "min_column": 0,
       "max_severity": null
     }
+  },
+  "edit_predictions": {
+    "mode": "subtle"
   }
 }

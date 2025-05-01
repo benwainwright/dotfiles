@@ -1,0 +1,10 @@
+{
+	"optOut": false,
+	"lastUpdateCheck": 1745912675475,
+	"update": {
+		"latest": "3.7.0",
+		"current": "3.4.0",
+		"type": "minor",
+		"name": "@docusaurus/core"
+	}
+}
