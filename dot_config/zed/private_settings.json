@@ -41,7 +41,7 @@
   },
   "vim_mode": true,
   "ui_font_size": 16,
-  "auto_signature_help": true,
+  "auto_signature_help": false,
   "buffer_font_size": 16,
   "active_pane_modifiers": {
     "inactive_opacity": 0.75,
